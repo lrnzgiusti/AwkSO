@@ -9,21 +9,16 @@ BEGIN{
 }
 
 {
-    if($1 == "aut-num:")
-    {
+    if($1 == "aut-num:") {
 	aut = $2;
     }
-
-    if($1 == "mnt-by:")
-    {
+    if($1 == "mnt-by:"){
 	vec[i] = $2;
 	i++;
     }
-    if($1 == "\0")
-    {
-	printf("%s ", aut);
-	for(j = 0; j < i; j++)
-	{
+    if($1 == "\0"){
+	printf("%s %d", aut, i);
+	for(j = 0; j < i; j++){
 	    printf(" %s", vec[j]);
 	}
 	i = 0;
